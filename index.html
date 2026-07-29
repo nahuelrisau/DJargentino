@@ -337,6 +337,29 @@
             color: var(--accent-color);
         }
 
+        /* Galería debajo de la Biografía */
+        .bio-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .bio-gallery img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+            transition: all 0.3s ease;
+        }
+
+        .bio-gallery img:hover {
+            transform: scale(1.02);
+            border-color: var(--accent-color);
+            box-shadow: 0 0 15px var(--accent-glow);
+        }
+
         /* --- Section: Shows --- */
         .shows-list {
             display: flex;
@@ -588,6 +611,12 @@
                 <p>Tras un viaje de mochilero que marcó un punto de inflexión en su vida y luego de cuatro años dedicados a la fotografía, RISAU decided canalizar su necesidad de expresión a través del DJing. Su propuesta fusiona sonoridades orgánicas —con fuerte presencia de tambores y ritmos africanos— con elementos futuristas, elegantes y minimalistas, manteniendo siempre el groove como hilo conductor.</p>
                 <p>Con una cuidada construcción musical en sus sesiones, hizo su debut a comienzos de 2026 en Waikiki (Ramos Mejía) y se consolidó con su presentación en Wax Club Cultural, lugar donde actualmente también trabaja y forma parte de la casa. RISAU representa el momento de expresarse, conectar con la pista y construir experiencias sonoras en conjunto con otros artistas.</p>
             </div>
+        </div>
+
+        <!-- Fotos agregadas debajo de la Biografía -->
+        <div class="bio-gallery">
+            <img src="p40.jpg" alt="Nahuel Risau en vivo">
+            <img src="p41.jpg" alt="Nahuel Risau DJ set">
         </div>
     </section>
 
