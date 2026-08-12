@@ -33,14 +33,18 @@
             scroll-behavior: smooth;
         }
 
-        /* FONDO GENERAL DE PANTALLA (p51.jpeg) CON EFECTO OSCURECIDO DE CLUB */
+        /* FONDO GENERAL DE PANTALLA CON ROTACIÓN Y TRANSICIÓN SUAVE */
         body {
             font-family: 'Plus Jakarta Sans', sans-serif;
-            background: linear-gradient(var(--overlay-color), var(--overlay-color)), 
-                        url('p51.jpeg') center/cover no-repeat fixed;
+            background-color: var(--bg-color);
+            background-position: center;
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
             color: var(--text-color);
             line-height: 1.6;
             overflow-x: hidden;
+            transition: background-image 1.5s ease-in-out;
         }
 
         /* --- Header & Navigation --- */
@@ -310,19 +314,21 @@
             border: 0;
         }
 
-        /* --- Section: Biografía (SEGUNDA FOTO DE FONDO p50.jpeg) --- */
+        /* --- Section: Biografía (FONDO CON ROTACIÓN DE IMÁGENES) --- */
         #bio {
             position: relative;
         }
 
         .bio-wrapper {
-            /* FONDO DE SECCIÓN BIOGRAFÍA CON p50.jpeg */
-            background: linear-gradient(rgba(10, 10, 10, 0.85), rgba(10, 10, 10, 0.92)), 
-                        url('p50.jpeg') center/cover no-repeat fixed;
+            background-position: center;
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
             border: 1px solid var(--border-color);
             border-radius: 20px;
             padding: 50px;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            transition: background-image 1.5s ease-in-out;
         }
 
         .bio-text p {
@@ -539,7 +545,7 @@
                 <a href="https://www.instagram.com/nahuerisau/" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
                 <a href="https://soundcloud.com/rissau-814381665/nahue-risau-wax-club-cultura" target="_blank" title="SoundCloud"><i class="fab fa-soundcloud"></i></a>
                 <a href="https://www.youtube.com/watch?v=l8Tcy2REP0c" target="_blank" title="YouTube"><i class="fab fa-youtube"></i></a>
-                <a href="https://open.spotify.com" target="_blank" title="Spotify"><i class="fab fa-spotify"></i></a>
+                <a href="mailto:Ideasnahuel@gmail.com" title="Email"><i class="fas fa-envelope"></i></a>
             </div>
         </div>
     </header>
@@ -601,10 +607,10 @@
         </div>
     </section>
 
-    <!-- Sección Biografía (con imagen de fondo p50.jpeg) -->
+    <!-- Sección Biografía -->
     <section id="bio">
         <h2 class="section-title">Biografía</h2>
-        <div class="bio-wrapper">
+        <div class="bio-wrapper" id="bioWrapper">
             <div class="bio-text">
                 <p>La historia de <strong>Nahuel Risau (RISAU)</strong> con la música electrónica comenzó mucho antes de pararse frente a las bandejas. Su pasión nació a los 11 años cuando un CD de D-Mode llegó a sus manos, y a los 14 ya vibraba en las pistas al ritmo de referentes locales como JP Montesino y JP Sgalia. Desde las matinés icónicas de la zona oeste hasta las ediciones masivas de Creamfields, la escena electrónica siempre fue su lugar en el mundo.</p>
                 <p>Durante años formó parte de la noche y de la cultura clubber desde adentro: trabajando como barman y en las puertas de espacios clave como Under Club, Golf Club Palermo, Kaix y productoras independientes. Esa cercanía con la noche le permitió absorber la dinámica de la pista, entender el timing del público y desarrollar un oído crítico para la selección musical.</p>
@@ -615,8 +621,8 @@
 
         <!-- Fotos agregadas debajo de la Biografía -->
         <div class="bio-gallery">
-            <img src="p40.jpg" alt="RISAU en vivo">
-            <img src="p41.jpg" alt="RISAU DJ set">
+            <img src="p40.jpeg" alt="RISAU en vivo">
+            <img src="p41.jpeg" alt="RISAU DJ set">
         </div>
     </section>
 
@@ -661,6 +667,9 @@
                 <a href="https://wa.me/5491124574449" target="_blank" class="btn btn-primary">
                     <i class="fab fa-whatsapp"></i> +54 9 11 2457-4449
                 </a>
+                <a href="mailto:Ideasnahuel@gmail.com" class="btn btn-outline">
+                    <i class="fas fa-envelope"></i> Ideasnahuel@gmail.com
+                </a>
                 <a href="https://www.instagram.com/nahuerisau/" target="_blank" class="btn btn-outline">
                     <i class="fab fa-instagram"></i> @nahuerisau
                 </a>
@@ -672,8 +681,9 @@
         <p>&copy; 2026 RISAU. Todos los derechos reservados.</p>
     </footer>
 
-    <!-- Script de Interactividad -->
+    <!-- Script de Interactividad y Rotación de Fondos -->
     <script>
+        // --- Menú Responsive y Scroll Header ---
         const menuToggle = document.getElementById('menuToggle');
         const navContainer = document.getElementById('navContainer');
 
@@ -708,6 +718,45 @@
                 header.classList.remove('scrolled');
             }
         });
+
+        // --- Rotación de Fondos ---
+        // 1. Fondo Principal de la página (body): foto1, p51, p50
+        const mainBackgrounds = [
+            'foto1.jpg',
+            'p51.jpeg',
+            'p50.jpeg'
+        ];
+
+        // 2. Fondo de la sección Biografía (.bio-wrapper): foto2, p40, p41
+        const bioBackgrounds = [
+            'foto2.jpg',
+            'p40.jpeg',
+            'p41.jpeg'
+        ];
+
+        let mainIndex = 0;
+        let bioIndex = 0;
+
+        function updateBackgrounds() {
+            // Fondo general
+            document.body.style.backgroundImage = `linear-gradient(var(--overlay-color), var(--overlay-color)), url('${mainBackgrounds[mainIndex]}')`;
+            
+            // Fondo de la biografía
+            const bioWrapper = document.getElementById('bioWrapper');
+            if (bioWrapper) {
+                bioWrapper.style.backgroundImage = `linear-gradient(rgba(10, 10, 10, 0.85), rgba(10, 10, 10, 0.92)), url('${bioBackgrounds[bioIndex]}')`;
+            }
+
+            // Incrementar índices
+            mainIndex = (mainIndex + 1) % mainBackgrounds.length;
+            bioIndex = (bioIndex + 1) % bioBackgrounds.length;
+        }
+
+        // Ejecutar al cargar la página
+        updateBackgrounds();
+
+        // Rotar cada 6 segundos (6000 milisegundos)
+        setInterval(updateBackgrounds, 6000);
     </script>
 </body>
 </html>
