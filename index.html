@@ -16,10 +16,10 @@
             --card-bg: rgba(20, 20, 20, 0.75);
             --card-hover: rgba(30, 30, 30, 0.85);
             --text-color: #e0e0e0;
-            --accent-color: #f5e6d3; /* Beige de apoyo */
+            --accent-color: #f5e6d3; /* Color beige */
             --accent-glow: rgba(245, 230, 211, 0.35);
-            --brown-color: #6f4e37; /* Color marrón para títulos, subtítulos, íconos y marca */
-            --brown-shadow: 0 0 10px rgba(245, 230, 211, 0.7); /* Sombra beige */
+            --brown-shadow: rgba(112, 66, 20, 0.8); /* Sombra/Contorno marrón */
+            --brown-glow: #704214;
             --muted-color: #a0a0a0;
             --border-color: rgba(255, 255, 255, 0.12);
             --overlay-color: rgba(10, 10, 10, 0.82);
@@ -69,19 +69,18 @@
             box-shadow: 0 4px 20px rgba(0,0,0,0.5);
         }
 
-        /* Nombre del Autor en el Logo */
         .logo {
             font-size: 1.4rem;
             font-weight: 700;
             letter-spacing: 3px;
-            color: var(--brown-color);
-            text-shadow: 0 0 8px #f5e6d3, 1px 1px 2px #f5e6d3;
+            color: var(--accent-color);
             text-decoration: none;
             text-transform: uppercase;
+            text-shadow: 0 0 8px var(--brown-glow), 2px 2px 4px var(--brown-shadow);
         }
 
         .logo span {
-            color: var(--brown-color);
+            color: var(--accent-color);
         }
 
         .nav-container {
@@ -106,8 +105,8 @@
         }
 
         nav a:hover {
-            color: var(--brown-color);
-            text-shadow: 0 0 8px var(--accent-color);
+            color: var(--accent-color);
+            text-shadow: 0 0 8px var(--brown-glow), 1px 1px 3px var(--brown-shadow);
         }
 
         .social-nav {
@@ -118,17 +117,16 @@
             padding-left: 20px;
         }
 
-        /* Íconos de navegación */
-        .social-nav a,
-        .social-nav i {
-            color: var(--brown-color);
-            filter: drop-shadow(0 0 3px #f5e6d3);
+        .social-nav a {
+            color: var(--accent-color);
             font-size: 1.1rem;
-            transition: color 0.3s ease, transform 0.2s ease;
+            text-shadow: 1px 1px 3px var(--brown-shadow);
+            transition: color 0.3s ease, transform 0.2s ease, text-shadow 0.3s ease;
         }
 
         .social-nav a:hover {
-            color: #8b5a2b;
+            color: #ffffff;
+            text-shadow: 0 0 10px var(--brown-glow), 2px 2px 5px var(--brown-shadow);
             transform: translateY(-2px);
         }
 
@@ -136,9 +134,10 @@
             display: none;
             background: none;
             border: none;
-            color: #ffffff;
+            color: var(--accent-color);
             font-size: 1.5rem;
             cursor: pointer;
+            text-shadow: 1px 1px 3px var(--brown-shadow);
         }
 
         /* --- Hero Section --- */
@@ -163,26 +162,24 @@
             border: 1px solid var(--border-color);
         }
 
-        /* Subtítulo */
         .hero-subtitle {
             font-size: 0.9rem;
             letter-spacing: 5px;
             text-transform: uppercase;
-            color: var(--brown-color);
-            text-shadow: 0 0 6px #f5e6d3;
+            color: var(--accent-color);
             margin-bottom: 15px;
             font-weight: 600;
+            text-shadow: 0 0 10px var(--brown-glow), 2px 2px 4px var(--brown-shadow);
         }
 
-        /* Nombre del Autor en Título Principal */
         #home h1 {
             font-size: 4.5rem;
             font-weight: 700;
             letter-spacing: 8px;
             margin-bottom: 20px;
-            color: var(--brown-color);
+            color: var(--accent-color);
             text-transform: uppercase;
-            text-shadow: 0 0 15px #f5e6d3, 2px 2px 4px rgba(245, 230, 211, 0.8);
+            text-shadow: 0 0 20px var(--brown-glow), 3px 3px 6px var(--brown-shadow);
         }
 
         #home p.hero-bio {
@@ -215,17 +212,21 @@
             cursor: pointer;
         }
 
-        /* Íconos en Botones */
         .btn i {
-            color: var(--brown-color);
-            filter: drop-shadow(0 0 2px #f5e6d3);
+            color: var(--accent-color);
+            text-shadow: 1px 1px 3px var(--brown-shadow);
         }
 
         .btn-primary {
             background-color: var(--accent-color);
             color: #000;
             border: 1px solid var(--accent-color);
-            box-shadow: 0 0 15px var(--accent-glow);
+            box-shadow: 0 0 15px var(--accent-glow), 0 0 10px var(--brown-shadow);
+        }
+
+        .btn-primary i {
+            color: #000;
+            text-shadow: none;
         }
 
         .btn-primary:hover {
@@ -248,6 +249,11 @@
             color: #000000;
         }
 
+        .btn-outline:hover i {
+            color: #000000;
+            text-shadow: none;
+        }
+
         /* --- Layout de Secciones --- */
         section {
             padding: 100px 20px;
@@ -255,16 +261,15 @@
             margin: 0 auto;
         }
 
-        /* Títulos de Secciones */
         h2.section-title {
             font-size: 2rem;
             margin-bottom: 40px;
             letter-spacing: 3px;
             text-transform: uppercase;
-            border-left: 3px solid var(--brown-color);
+            border-left: 3px solid var(--accent-color);
             padding-left: 15px;
-            color: var(--brown-color);
-            text-shadow: 0 0 10px #f5e6d3, 1px 1px 2px #f5e6d3;
+            color: var(--accent-color);
+            text-shadow: 0 0 10px var(--brown-glow), 2px 2px 4px var(--brown-shadow);
         }
 
         /* --- Section: Música --- */
@@ -290,24 +295,22 @@
         }
 
         .media-card:hover {
-            border-color: var(--brown-color);
+            border-color: var(--accent-color);
             box-shadow: 0 0 20px var(--accent-glow);
         }
 
-        /* Títulos secundarios / Subtítulos */
         .media-card h3 {
             font-size: 1.2rem;
-            color: var(--brown-color);
-            text-shadow: 0 0 8px #f5e6d3;
+            color: var(--accent-color);
+            text-shadow: 0 0 8px var(--brown-glow), 1px 1px 3px var(--brown-shadow);
             display: flex;
             align-items: center;
             gap: 10px;
         }
 
-        /* Íconos generales */
-        i {
-            color: var(--brown-color);
-            filter: drop-shadow(0 0 3px #f5e6d3);
+        .media-card h3 i {
+            color: var(--accent-color) !important;
+            text-shadow: 1px 1px 3px var(--brown-shadow);
         }
 
         .media-card p {
@@ -361,8 +364,8 @@
         }
 
         .bio-text strong {
-            color: var(--brown-color);
-            text-shadow: 0 0 5px #f5e6d3;
+            color: var(--accent-color);
+            text-shadow: 1px 1px 2px var(--brown-shadow);
         }
 
         /* Galería debajo de la Biografía con 2.jpeg y 3.jpeg */
@@ -384,7 +387,7 @@
 
         .bio-gallery img:hover {
             transform: scale(1.02);
-            border-color: var(--brown-color);
+            border-color: var(--accent-color);
             box-shadow: 0 0 15px var(--accent-glow);
         }
 
@@ -417,8 +420,8 @@
         .show-date {
             font-weight: 700;
             font-size: 1.1rem;
-            color: var(--brown-color);
-            text-shadow: 0 0 6px #f5e6d3;
+            color: var(--accent-color);
+            text-shadow: 1px 1px 3px var(--brown-shadow);
             min-width: 130px;
         }
 
