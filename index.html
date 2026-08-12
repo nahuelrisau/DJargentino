@@ -16,10 +16,10 @@
             --card-bg: rgba(20, 20, 20, 0.75);
             --card-hover: rgba(30, 30, 30, 0.85);
             --text-color: #e0e0e0;
-            --accent-color: #f5e6d3; /* Color beige */
-            --accent-glow: rgba(245, 230, 211, 0.35);
-            --brown-shadow: rgba(112, 66, 20, 0.8); /* Sombra/Contorno marrón */
-            --brown-glow: #704214;
+            --accent-color: #8b5a2b; /* Marrón elegante */
+            --accent-glow: rgba(245, 230, 211, 0.5); /* Sombra/Glow Beige */
+            --brown-title: #a06836; /* Marrón más cálido para contraste */
+            --beige-shadow: 2px 2px 8px rgba(245, 230, 211, 0.4); /* Sombra beige para texto */
             --muted-color: #a0a0a0;
             --border-color: rgba(255, 255, 255, 0.12);
             --overlay-color: rgba(10, 10, 10, 0.82);
@@ -73,14 +73,14 @@
             font-size: 1.4rem;
             font-weight: 700;
             letter-spacing: 3px;
-            color: var(--accent-color);
+            color: var(--brown-title);
+            text-shadow: var(--beige-shadow);
             text-decoration: none;
             text-transform: uppercase;
-            text-shadow: 0 0 8px var(--brown-glow), 2px 2px 4px var(--brown-shadow);
         }
 
         .logo span {
-            color: var(--accent-color);
+            color: var(--brown-title);
         }
 
         .nav-container {
@@ -105,8 +105,8 @@
         }
 
         nav a:hover {
-            color: var(--accent-color);
-            text-shadow: 0 0 8px var(--brown-glow), 1px 1px 3px var(--brown-shadow);
+            color: var(--brown-title);
+            text-shadow: var(--beige-shadow);
         }
 
         .social-nav {
@@ -118,15 +118,14 @@
         }
 
         .social-nav a {
-            color: var(--accent-color);
+            color: var(--brown-title);
+            text-shadow: var(--beige-shadow);
             font-size: 1.1rem;
-            text-shadow: 1px 1px 3px var(--brown-shadow);
-            transition: color 0.3s ease, transform 0.2s ease, text-shadow 0.3s ease;
+            transition: color 0.3s ease, transform 0.2s ease;
         }
 
         .social-nav a:hover {
-            color: #ffffff;
-            text-shadow: 0 0 10px var(--brown-glow), 2px 2px 5px var(--brown-shadow);
+            color: #f5e6d3;
             transform: translateY(-2px);
         }
 
@@ -134,10 +133,9 @@
             display: none;
             background: none;
             border: none;
-            color: var(--accent-color);
+            color: #ffffff;
             font-size: 1.5rem;
             cursor: pointer;
-            text-shadow: 1px 1px 3px var(--brown-shadow);
         }
 
         /* --- Hero Section --- */
@@ -166,10 +164,10 @@
             font-size: 0.9rem;
             letter-spacing: 5px;
             text-transform: uppercase;
-            color: var(--accent-color);
+            color: var(--brown-title);
+            text-shadow: var(--beige-shadow);
             margin-bottom: 15px;
             font-weight: 600;
-            text-shadow: 0 0 10px var(--brown-glow), 2px 2px 4px var(--brown-shadow);
         }
 
         #home h1 {
@@ -177,9 +175,9 @@
             font-weight: 700;
             letter-spacing: 8px;
             margin-bottom: 20px;
-            color: var(--accent-color);
+            color: var(--brown-title);
+            text-shadow: 2px 2px 12px rgba(245, 230, 211, 0.5);
             text-transform: uppercase;
-            text-shadow: 0 0 20px var(--brown-glow), 3px 3px 6px var(--brown-shadow);
         }
 
         #home p.hero-bio {
@@ -213,27 +211,23 @@
         }
 
         .btn i {
-            color: var(--accent-color);
-            text-shadow: 1px 1px 3px var(--brown-shadow);
+            color: var(--brown-title);
+            text-shadow: var(--beige-shadow);
         }
 
         .btn-primary {
             background-color: var(--accent-color);
-            color: #000;
+            color: #ffffff;
             border: 1px solid var(--accent-color);
-            box-shadow: 0 0 15px var(--accent-glow), 0 0 10px var(--brown-shadow);
-        }
-
-        .btn-primary i {
-            color: #000;
-            text-shadow: none;
+            box-shadow: 0 0 15px var(--accent-glow);
         }
 
         .btn-primary:hover {
             transform: translateY(-3px);
-            background-color: #ffffff;
-            border-color: #ffffff;
-            box-shadow: 0 5px 20px rgba(255, 255, 255, 0.4);
+            background-color: #f5e6d3;
+            color: #4a2e16;
+            border-color: #f5e6d3;
+            box-shadow: 0 5px 20px rgba(245, 230, 211, 0.4);
         }
 
         .btn-outline {
@@ -245,13 +239,8 @@
 
         .btn-outline:hover {
             transform: translateY(-3px);
-            background-color: #ffffff;
-            color: #000000;
-        }
-
-        .btn-outline:hover i {
-            color: #000000;
-            text-shadow: none;
+            background-color: #f5e6d3;
+            color: #4a2e16;
         }
 
         /* --- Layout de Secciones --- */
@@ -266,10 +255,10 @@
             margin-bottom: 40px;
             letter-spacing: 3px;
             text-transform: uppercase;
-            border-left: 3px solid var(--accent-color);
+            border-left: 3px solid var(--brown-title);
             padding-left: 15px;
-            color: var(--accent-color);
-            text-shadow: 0 0 10px var(--brown-glow), 2px 2px 4px var(--brown-shadow);
+            color: var(--brown-title);
+            text-shadow: var(--beige-shadow);
         }
 
         /* --- Section: Música --- */
@@ -301,16 +290,16 @@
 
         .media-card h3 {
             font-size: 1.2rem;
-            color: var(--accent-color);
-            text-shadow: 0 0 8px var(--brown-glow), 1px 1px 3px var(--brown-shadow);
+            color: var(--brown-title);
+            text-shadow: var(--beige-shadow);
             display: flex;
             align-items: center;
             gap: 10px;
         }
 
         .media-card h3 i {
-            color: var(--accent-color) !important;
-            text-shadow: 1px 1px 3px var(--brown-shadow);
+            color: var(--brown-title);
+            text-shadow: var(--beige-shadow);
         }
 
         .media-card p {
@@ -364,8 +353,8 @@
         }
 
         .bio-text strong {
-            color: var(--accent-color);
-            text-shadow: 1px 1px 2px var(--brown-shadow);
+            color: var(--brown-title);
+            text-shadow: var(--beige-shadow);
         }
 
         /* Galería debajo de la Biografía con 2.jpeg y 3.jpeg */
@@ -420,8 +409,8 @@
         .show-date {
             font-weight: 700;
             font-size: 1.1rem;
-            color: var(--accent-color);
-            text-shadow: 1px 1px 3px var(--brown-shadow);
+            color: var(--brown-title);
+            text-shadow: var(--beige-shadow);
             min-width: 130px;
         }
 
@@ -568,7 +557,7 @@
                 <a href="#contacto">Contacto</a>
             </nav>
             <div class="social-nav">
-                <a href="https://www.instagram.com/nahuerisau/" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="https://www.instagram.com/risau.dj/" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
                 <a href="https://soundcloud.com/rissau-814381665/nahue-risau-wax-club-cultura" target="_blank" title="SoundCloud"><i class="fab fa-soundcloud"></i></a>
                 <a href="https://www.youtube.com/watch?v=l8Tcy2REP0c" target="_blank" title="YouTube"><i class="fab fa-youtube"></i></a>
                 <a href="mailto:Ideasnahuel@gmail.com" title="Email"><i class="fas fa-envelope"></i></a>
@@ -659,7 +648,7 @@
                     <div class="show-location">Nuevas locaciones & Clubs</div>
                 </div>
                 <div class="show-action">
-                    <a href="https://www.instagram.com/nahuerisau/" target="_blank" class="btn btn-primary">
+                    <a href="https://www.instagram.com/risau.dj/" target="_blank" class="btn btn-primary">
                         <i class="fab fa-instagram"></i> Avisos vía IG
                     </a>
                 </div>
@@ -680,8 +669,8 @@
                 <a href="mailto:Ideasnahuel@gmail.com" class="btn btn-outline">
                     <i class="fas fa-envelope"></i> Ideasnahuel@gmail.com
                 </a>
-                <a href="https://www.instagram.com/nahuerisau/" target="_blank" class="btn btn-outline">
-                    <i class="fab fa-instagram"></i> @nahuerisau
+                <a href="https://www.instagram.com/risau.dj/" target="_blank" class="btn btn-outline">
+                    <i class="fab fa-instagram"></i> @risau.dj
                 </a>
             </div>
         </div>
