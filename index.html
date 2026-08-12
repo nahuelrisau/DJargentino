@@ -16,8 +16,10 @@
             --card-bg: rgba(20, 20, 20, 0.75);
             --card-hover: rgba(30, 30, 30, 0.85);
             --text-color: #e0e0e0;
-            --accent-color: #f5e6d3; /* Color beige elegante */
+            --accent-color: #f5e6d3; /* Beige de apoyo */
             --accent-glow: rgba(245, 230, 211, 0.35);
+            --brown-color: #6f4e37; /* Color marrón para títulos, subtítulos, íconos y marca */
+            --brown-shadow: 0 0 10px rgba(245, 230, 211, 0.7); /* Sombra beige */
             --muted-color: #a0a0a0;
             --border-color: rgba(255, 255, 255, 0.12);
             --overlay-color: rgba(10, 10, 10, 0.82);
@@ -67,17 +69,19 @@
             box-shadow: 0 4px 20px rgba(0,0,0,0.5);
         }
 
+        /* Nombre del Autor en el Logo */
         .logo {
             font-size: 1.4rem;
             font-weight: 700;
             letter-spacing: 3px;
-            color: var(--accent-color); /* Nombre del autor en el Logo en beige */
+            color: var(--brown-color);
+            text-shadow: 0 0 8px #f5e6d3, 1px 1px 2px #f5e6d3;
             text-decoration: none;
             text-transform: uppercase;
         }
 
         .logo span {
-            color: var(--accent-color);
+            color: var(--brown-color);
         }
 
         .nav-container {
@@ -102,8 +106,8 @@
         }
 
         nav a:hover {
-            color: var(--accent-color);
-            text-shadow: 0 0 8px var(--accent-glow);
+            color: var(--brown-color);
+            text-shadow: 0 0 8px var(--accent-color);
         }
 
         .social-nav {
@@ -114,14 +118,17 @@
             padding-left: 20px;
         }
 
-        .social-nav a {
-            color: var(--muted-color);
+        /* Íconos de navegación */
+        .social-nav a,
+        .social-nav i {
+            color: var(--brown-color);
+            filter: drop-shadow(0 0 3px #f5e6d3);
             font-size: 1.1rem;
             transition: color 0.3s ease, transform 0.2s ease;
         }
 
         .social-nav a:hover {
-            color: var(--accent-color);
+            color: #8b5a2b;
             transform: translateY(-2px);
         }
 
@@ -156,23 +163,26 @@
             border: 1px solid var(--border-color);
         }
 
+        /* Subtítulo */
         .hero-subtitle {
             font-size: 0.9rem;
             letter-spacing: 5px;
             text-transform: uppercase;
-            color: var(--accent-color); /* Subtítulo en beige */
+            color: var(--brown-color);
+            text-shadow: 0 0 6px #f5e6d3;
             margin-bottom: 15px;
             font-weight: 600;
         }
 
+        /* Nombre del Autor en Título Principal */
         #home h1 {
             font-size: 4.5rem;
             font-weight: 700;
             letter-spacing: 8px;
             margin-bottom: 20px;
-            color: var(--accent-color); /* Nombre del Autor principal en beige */
+            color: var(--brown-color);
             text-transform: uppercase;
-            text-shadow: 0 0 20px var(--accent-glow);
+            text-shadow: 0 0 15px #f5e6d3, 2px 2px 4px rgba(245, 230, 211, 0.8);
         }
 
         #home p.hero-bio {
@@ -203,6 +213,12 @@
             text-transform: uppercase;
             transition: all 0.3s ease;
             cursor: pointer;
+        }
+
+        /* Íconos en Botones */
+        .btn i {
+            color: var(--brown-color);
+            filter: drop-shadow(0 0 2px #f5e6d3);
         }
 
         .btn-primary {
@@ -239,14 +255,16 @@
             margin: 0 auto;
         }
 
+        /* Títulos de Secciones */
         h2.section-title {
             font-size: 2rem;
             margin-bottom: 40px;
             letter-spacing: 3px;
             text-transform: uppercase;
-            border-left: 3px solid var(--accent-color);
+            border-left: 3px solid var(--brown-color);
             padding-left: 15px;
-            color: var(--accent-color); /* Títulos de sección en beige */
+            color: var(--brown-color);
+            text-shadow: 0 0 10px #f5e6d3, 1px 1px 2px #f5e6d3;
         }
 
         /* --- Section: Música --- */
@@ -272,16 +290,24 @@
         }
 
         .media-card:hover {
-            border-color: var(--accent-color);
+            border-color: var(--brown-color);
             box-shadow: 0 0 20px var(--accent-glow);
         }
 
+        /* Títulos secundarios / Subtítulos */
         .media-card h3 {
             font-size: 1.2rem;
-            color: var(--accent-color); /* Subtítulos de tarjetas en beige */
+            color: var(--brown-color);
+            text-shadow: 0 0 8px #f5e6d3;
             display: flex;
             align-items: center;
             gap: 10px;
+        }
+
+        /* Íconos generales */
+        i {
+            color: var(--brown-color);
+            filter: drop-shadow(0 0 3px #f5e6d3);
         }
 
         .media-card p {
@@ -335,7 +361,8 @@
         }
 
         .bio-text strong {
-            color: var(--accent-color);
+            color: var(--brown-color);
+            text-shadow: 0 0 5px #f5e6d3;
         }
 
         /* Galería debajo de la Biografía con 2.jpeg y 3.jpeg */
@@ -357,7 +384,7 @@
 
         .bio-gallery img:hover {
             transform: scale(1.02);
-            border-color: var(--accent-color);
+            border-color: var(--brown-color);
             box-shadow: 0 0 15px var(--accent-glow);
         }
 
@@ -390,7 +417,8 @@
         .show-date {
             font-weight: 700;
             font-size: 1.1rem;
-            color: var(--accent-color);
+            color: var(--brown-color);
+            text-shadow: 0 0 6px #f5e6d3;
             min-width: 130px;
         }
 
@@ -400,7 +428,7 @@
 
         .show-venue {
             font-weight: 600;
-            color: var(--accent-color); /* Nombres de lugares/eventos en beige */
+            color: #ffffff;
             font-size: 1rem;
         }
 
@@ -571,7 +599,7 @@
             
             <!-- Reproductor YouTube -->
             <div class="media-card">
-                <h3><i class="fab fa-youtube" style="color: #ff0000;"></i> Live Video Set</h3>
+                <h3><i class="fab fa-youtube"></i> Live Video Set</h3>
                 <p>Sesión en vivo grabada con sonido de alta definición y puesta en escena atmosférica.</p>
                 <div class="iframe-container video">
                     <iframe 
