@@ -33,18 +33,14 @@
             scroll-behavior: smooth;
         }
 
-        /* FONDO GENERAL DE PANTALLA CON ROTACIÓN Y TRANSICIÓN SUAVE */
+        /* FONDO GENERAL DE PANTALLA CON 1.jpeg */
         body {
             font-family: 'Plus Jakarta Sans', sans-serif;
-            background-color: var(--bg-color);
-            background-position: center;
-            background-size: cover;
-            background-repeat: no-repeat;
-            background-attachment: fixed;
+            background: linear-gradient(var(--overlay-color), var(--overlay-color)), 
+                        url('1.jpeg') center/cover no-repeat fixed;
             color: var(--text-color);
             line-height: 1.6;
             overflow-x: hidden;
-            transition: background-image 1.5s ease-in-out;
         }
 
         /* --- Header & Navigation --- */
@@ -256,8 +252,9 @@
         /* --- Section: Música --- */
         .music-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 30px;
+            grid-template-columns: 1fr;
+            max-width: 700px;
+            margin: 0 auto;
         }
 
         .media-card {
@@ -314,21 +311,19 @@
             border: 0;
         }
 
-        /* --- Section: Biografía (FONDO CON ROTACIÓN DE IMÁGENES) --- */
+        /* --- Section: Biografía --- */
         #bio {
             position: relative;
         }
 
         .bio-wrapper {
-            background-position: center;
-            background-size: cover;
-            background-repeat: no-repeat;
-            background-attachment: fixed;
+            background-color: var(--card-bg);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
             border: 1px solid var(--border-color);
             border-radius: 20px;
             padding: 50px;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-            transition: background-image 1.5s ease-in-out;
         }
 
         .bio-text p {
@@ -343,7 +338,7 @@
             color: var(--accent-color);
         }
 
-        /* Galería debajo de la Biografía */
+        /* Galería de Biografía con 2.jpeg y 3.jpeg (o 3.jpg / 3.png según tu archivo) */
         .bio-gallery {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -588,41 +583,25 @@
                 </div>
             </div>
 
-            <!-- Reproductor SoundCloud -->
-            <div class="media-card">
-                <h3><i class="fab fa-soundcloud" style="color: #ff5500;"></i> Live @ Wax Club Cultural</h3>
-                <p>Set en vivo. Recorrido sonoro de ritmo constante y selección fina.</p>
-                <div class="iframe-container">
-                    <iframe 
-                        width="100%" 
-                        height="300" 
-                        scrolling="no" 
-                        frameborder="no" 
-                        allow="autoplay" 
-                        src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/1860888243&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true">
-                    </iframe>
-                </div>
-            </div>
-
         </div>
     </section>
 
     <!-- Sección Biografía -->
     <section id="bio">
         <h2 class="section-title">Biografía</h2>
-        <div class="bio-wrapper" id="bioWrapper">
+        <div class="bio-wrapper">
             <div class="bio-text">
                 <p>La historia de <strong>Nahuel Risau (RISAU)</strong> con la música electrónica comenzó mucho antes de pararse frente a las bandejas. Su pasión nació a los 11 años cuando un CD de D-Mode llegó a sus manos, y a los 14 ya vibraba en las pistas al ritmo de referentes locales como JP Montesino y JP Sgalia. Desde las matinés icónicas de la zona oeste hasta las ediciones masivas de Creamfields, la escena electrónica siempre fue su lugar en el mundo.</p>
                 <p>Durante años formó parte de la noche y de la cultura clubber desde adentro: trabajando como barman y en las puertas de espacios clave como Under Club, Golf Club Palermo, Kaix y productoras independientes. Esa cercanía con la noche le permitió absorber la dinámica de la pista, entender el timing del público y desarrollar un oído crítico para la selección musical.</p>
                 <p>Tras un viaje de mochilero que marcó un punto de inflexión en su vida y luego de cuatro años dedicados a la fotografía, RISAU decidió canalizar su necesidad de expresión a través del DJing. Su propuesta fusiona sonoridades orgánicas —con fuerte presencia de tambores y ritmos africanos— con elementos futuristas, elegantes y minimalistas, manteniendo siempre el groove como hilo conductor.</p>
                 <p>Con una cuidada construcción musical en sus sesiones, hizo su debut a comienzos de 2026 en Waikiki (Ramos Mejía) y se consolidó con su presentación en Wax Club Cultural, lugar donde actualmente también trabaja y forma parte de la casa. RISAU representa el momento de expresarse, conectar con la pista y construir experiencias sonoras en conjunto con otros artistas.</p>
             </div>
-        </div>
 
-        <!-- Fotos agregadas debajo de la Biografía -->
-        <div class="bio-gallery">
-            <img src="p40.jpeg" alt="RISAU en vivo">
-            <img src="p41.jpeg" alt="RISAU DJ set">
+            <!-- Galería de imágenes 2.jpeg e imagen 3 -->
+            <div class="bio-gallery">
+                <img src="2.jpeg" alt="RISAU fotografía">
+                <img src="3.jpeg" alt="RISAU biografía">
+            </div>
         </div>
     </section>
 
@@ -681,9 +660,8 @@
         <p>&copy; 2026 RISAU. Todos los derechos reservados.</p>
     </footer>
 
-    <!-- Script de Interactividad y Rotación de Fondos -->
+    <!-- Script de Interactividad -->
     <script>
-        // --- Menú Responsive y Scroll Header ---
         const menuToggle = document.getElementById('menuToggle');
         const navContainer = document.getElementById('navContainer');
 
@@ -718,45 +696,6 @@
                 header.classList.remove('scrolled');
             }
         });
-
-        // --- Rotación de Fondos ---
-        // 1. Fondo Principal de la página (body): foto1, p51, p50
-        const mainBackgrounds = [
-            'foto1.jpg',
-            'p51.jpeg',
-            'p50.jpeg'
-        ];
-
-        // 2. Fondo de la sección Biografía (.bio-wrapper): foto2, p40, p41
-        const bioBackgrounds = [
-            'foto2.jpg',
-            'p40.jpeg',
-            'p41.jpeg'
-        ];
-
-        let mainIndex = 0;
-        let bioIndex = 0;
-
-        function updateBackgrounds() {
-            // Fondo general
-            document.body.style.backgroundImage = `linear-gradient(var(--overlay-color), var(--overlay-color)), url('${mainBackgrounds[mainIndex]}')`;
-            
-            // Fondo de la biografía
-            const bioWrapper = document.getElementById('bioWrapper');
-            if (bioWrapper) {
-                bioWrapper.style.backgroundImage = `linear-gradient(rgba(10, 10, 10, 0.85), rgba(10, 10, 10, 0.92)), url('${bioBackgrounds[bioIndex]}')`;
-            }
-
-            // Incrementar índices
-            mainIndex = (mainIndex + 1) % mainBackgrounds.length;
-            bioIndex = (bioIndex + 1) % bioBackgrounds.length;
-        }
-
-        // Ejecutar al cargar la página
-        updateBackgrounds();
-
-        // Rotar cada 6 segundos (6000 milisegundos)
-        setInterval(updateBackgrounds, 6000);
     </script>
 </body>
 </html>
